@@ -1,0 +1,100 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: clamp(4rem, 10vh, 8rem) var(--mantine-spacing-md);
+  background-color: var(--mantine-color-black);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-top: clamp(4rem, 10vh, 8rem);
+  margin-bottom: clamp(4rem, 10vh, 8rem);
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    light-dark(rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.9)) 0%,
+    light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)) 50%,
+    light-dark(rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.9)) 100%
+  );
+  z-index: 1;
+}
+
+.inner {
+  max-width: var(--mantine-breakpoint-xl);
+  margin: 0 auto;
+  padding: 0 var(--mantine-spacing-md);
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: var(--mantine-spacing-xl);
+  color: var(--mantine-color-orange-4);
+}
+
+.description {
+  text-align: center;
+  text-justify: center;
+  max-width: 800px;
+  margin: 0 auto var(--mantine-spacing-xl);
+  padding: var(--mantine-spacing-md);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: clamp(var(--mantine-spacing-xl), 3vw, 3rem);
+  width: 100%;
+  margin-top: clamp(3rem, 5vh, 5rem);
+}
+
+.projectCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-15px);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 66.67%; /* 3:2 aspect ratio */
+  overflow: hidden;
+  
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: var(--mantine-radius-md);
+  border-top-right-radius: var(--mantine-radius-md);
+  border: 1px solid var(--mantine-color-transparent);
+}
+
+@media (max-width: $mantine-breakpoint-sm) {
+  .container {
+    padding: var(--mantine-spacing-lg) var(--mantine-spacing-xs);
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}

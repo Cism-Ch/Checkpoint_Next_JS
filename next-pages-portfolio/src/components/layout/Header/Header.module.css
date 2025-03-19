@@ -1,0 +1,103 @@
+.header {
+  height: rem(60px);
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-9));
+  border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-9));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+}
+
+.section:first-child {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.section:nth-child(2) {
+  flex: 2;
+  justify-content: center;
+}
+
+.section:last-child {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.navigationWrapper {
+  padding: 0.5rem;
+  border-radius: var(--mantine-radius-xl);
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-9));
+  transition: background-color 0.2s ease;
+  padding: var(--mantine-spacing-lg) var(--mantine-spacing-md);
+}
+
+.inner {
+  height: rem(60px);
+  display: flex;
+  align-items: center;
+  gap: var(--mantine-spacing-md);
+}
+
+.inner > div {
+  display: flex;
+  align-items: center;
+}
+
+.inner > div:first-child {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.inner > div:nth-child(2) {
+  flex: 2;
+  justify-content: center;
+}
+
+.inner > div:last-child {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+@media (max-width: $mantine-breakpoint-sm) {
+  .inner {
+    padding: 0 var(--mantine-spacing-sm);
+  }
+
+  .inner > div:nth-child(2) {
+    flex: 1;
+  }
+
+  .inner > div:first-child,
+  .inner > div:last-child {
+    flex: 0 0 auto;
+  }
+}
+
+.logo {
+  text-decoration: none;
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+}
+
+.mainLink {
+  text-transform: uppercase;
+  font-size: var(--mantine-font-size-sm);
+  color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-1));
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
+  border-radius: var(--mantine-radius-sm);
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.mainLink:hover {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+}
+
+.mainLink.active {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  color: var(--mantine-color-blue-filled);
+} 

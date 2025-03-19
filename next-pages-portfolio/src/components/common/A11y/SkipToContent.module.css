@@ -1,0 +1,20 @@
+.skipLink {
+  background: var(--mantine-color-blue-filled);
+  color: white;
+  padding: var(--mantine-spacing-md);
+  position: fixed;
+  top: -100%;
+  left: 0;
+  z-index: 1000;
+  text-decoration: none;
+  border-radius: 0 0 var(--mantine-radius-md) 0;
+  transition: top 0.2s ease-in-out;
+}
+
+.skipLink:focus {
+  top: 0;
+}
+
+.skipLink:hover {
+  text-decoration: underline;
+} 

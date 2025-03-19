@@ -1,0 +1,117 @@
+import { Project } from '../types/project';
+
+export const projects: Project[] = [
+  {
+    id: '1',
+    slug: 'e-commerce-platform',
+    title: 'Plateforme E-commerce',
+    description:
+      'Une plateforme e-commerce complète avec panier, paiement et gestion des commandes.',
+    longDescription: `Une plateforme e-commerce moderne construite avec Next.js et Node.js. 
+    Intégration complète avec Stripe pour les paiements, gestion des produits avec MongoDB, 
+    et interface administrative personnalisée.`,
+    image: 'https://placehold.co/600x400/png',
+    gallery: [
+      {
+        url: 'https://placehold.co/800x600/png',
+        caption: "Page d'accueil avec les produits mis en avant",
+      },
+      {
+        url: 'https://placehold.co/800x600/png',
+        caption: "Interface du panier d'achat",
+      },
+      {
+        url: 'https://placehold.co/800x600/png',
+        caption: 'Tableau de bord administrateur',
+      },
+      {
+        url: 'https://placehold.co/800x600/png',
+        caption: 'Page de détail produit',
+      },
+    ],
+    technologies: ['React', 'Next.js', 'Node.js', 'MongoDB', 'Stripe'],
+    category: 'fullstack',
+    demoUrl: 'https://demo-ecommerce.com',
+    githubUrl: 'https://github.com/username/ecommerce',
+    featured: true,
+    date: '2024-01',
+    gradient: 'from-blue-500 to-cyan-500',
+  },
+  {
+    id: '2',
+    slug: 'dashboard-analytics',
+    title: 'Dashboard Analytics',
+    description: 'Dashboard administratif avec visualisation de données en temps réel.',
+    longDescription: `Interface d'administration sophistiquée permettant de visualiser et 
+    d'analyser les données en temps réel. Graphiques interactifs et rapports personnalisables.`,
+    image: 'https://placehold.co/600x400/png',
+    gallery: [
+      {
+        url: 'https://placehold.co/800x600/png',
+        caption: "Vue d'ensemble du tableau de bord",
+      },
+      {
+        url: 'https://placehold.co/800x600/png',
+        caption: 'Graphiques de performance',
+      },
+      {
+        url: 'https://placehold.co/800x600/png',
+        caption: 'Page de rapports personnalisés',
+      },
+    ],
+    technologies: ['React', 'TypeScript', 'D3.js', 'Socket.IO'],
+    category: 'frontend',
+    demoUrl: 'https://demo-dashboard.com',
+    githubUrl: 'https://github.com/username/dashboard',
+    featured: true,
+    date: '2023-12',
+    gradient: 'from-purple-500 to-pink-500',
+  },
+  {
+    id: '3',
+    slug: 'mobile-fitness-app',
+    title: 'Application Fitness',
+    description: "Application mobile de suivi d'entraînement et de nutrition.",
+    longDescription: `Application mobile React Native permettant aux utilisateurs de suivre 
+    leurs entraînements et leur nutrition. Synchronisation cloud et analyses personnalisées.`,
+    image: 'https://placehold.co/600x400/png',
+    technologies: ['React Native', 'Firebase', 'Redux', 'Node.js'],
+    category: 'mobile',
+    demoUrl: 'https://demo-fitness.com',
+    githubUrl: 'https://github.com/username/fitness-app',
+    featured: false,
+    date: '2023-11',
+    gradient: 'from-green-500 to-teal-500',
+  },
+  {
+    id: '4',
+    slug: 'api-gateway',
+    title: 'API Gateway Service',
+    description: 'Service de gateway API avec authentification et monitoring.',
+    longDescription: `Gateway API construit avec Node.js et Express, intégrant authentification JWT, 
+    rate limiting, logging et monitoring des performances en temps réel.`,
+    image: 'https://placehold.co/600x400/png',
+    technologies: ['Node.js', 'Express', 'Redis', 'Docker'],
+    category: 'backend',
+    githubUrl: 'https://github.com/username/api-gateway',
+    featured: false,
+    date: '2023-10',
+    gradient: 'from-orange-500 to-red-500',
+  },
+  {
+    id: '5',
+    slug: 'social-platform',
+    title: 'Plateforme Sociale',
+    description: 'Réseau social pour les développeurs avec partage de code.',
+    longDescription: `Plateforme sociale permettant aux développeurs de partager et commenter du code, 
+    avec support pour la coloration syntaxique et l'exécution en temps réel.`,
+    image: 'https://placehold.co/600x400/png',
+    technologies: ['React', 'GraphQL', 'PostgreSQL', 'Redis'],
+    category: 'fullstack',
+    demoUrl: 'https://demo-social.com',
+    githubUrl: 'https://github.com/username/social-platform',
+    featured: true,
+    date: '2023-09',
+    gradient: 'from-indigo-500 to-purple-500',
+  },
+];

@@ -1,0 +1,23 @@
+.navWrapper {
+  position: relative;
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+  border-radius: var(--mantine-radius-xl);
+  overflow: hidden;
+}
+
+.navWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-7));
+  z-index: 0;
+  border-radius: var(--mantine-radius-lg);
+}
+
+.navContent {
+  position: relative;
+  z-index: 1;
+}
