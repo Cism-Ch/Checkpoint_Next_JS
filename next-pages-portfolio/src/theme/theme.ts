@@ -1,6 +1,12 @@
 import { createTheme, MantineTheme, rem } from '@mantine/core';
+import { createGlassmorphismStyles } from './styles/glassmorphism';
 
 export const theme = createTheme({
+  other: {
+    glassmorphism: createGlassmorphismStyles,
+    transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    transitionDuration: '200ms',
+  },
   primaryColor: 'brand',
 
   /* Configuration des couleurs */
@@ -45,11 +51,11 @@ export const theme = createTheme({
 
   /* Configuration typographique */
   fontFamily:
-    'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
+    'Raleway, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
   fontFamilyMonospace: 'Monaco, Courier, monospace',
   headings: {
     fontFamily:
-      'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
+      'Raleway, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
     sizes: {
       h1: { fontSize: rem(44), lineHeight: '1.3', fontWeight: '700' },
       h2: { fontSize: rem(36), lineHeight: '1.35', fontWeight: '600' },
@@ -96,17 +102,12 @@ export const theme = createTheme({
     xl: '0 1px 3px rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0px 36px 28px -7px, rgba(0, 0, 0, 0.04) 0px 17px 17px -7px',
   },
 
-  /* Configuration des transitions */
-  other: {
-    transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
-    transitionDuration: '200ms',
-  },
-
   /* Configuration des composants par défaut */
   components: {
     Button: {
       defaultProps: {
         radius: 'xl',
+        size: 'md',
       },
       styles: (_theme: MantineTheme) => ({
         root: {
@@ -115,7 +116,7 @@ export const theme = createTheme({
             transform: 'translateY(-1px)',
           },
           '&[data-variant="subtle"]': {
-            color: 'light-dark(var(--mantine-color-dark-9), var(--mantine-color-white))',
+            color: 'var(--mantine-color-text)',
           }
         },
       }),
@@ -132,7 +133,7 @@ export const theme = createTheme({
       },
       styles: (_theme: MantineTheme) => ({
         root: {
-          color: 'light-dark(var(--mantine-color-dark-9), var(--mantine-color-white))',
+          color: 'var(--mantine-color-text)',
           '&:hover': {
             opacity: 0.8,
           },
@@ -142,7 +143,7 @@ export const theme = createTheme({
     Link: {
       styles: (_theme: MantineTheme) => ({
         root: {
-          color: 'light-dark(var(--mantine-color-dark-9), var(--mantine-color-white))',
+          color: 'var(--mantine-color-text)',
           '&:hover': {
             opacity: 0.8,
           },

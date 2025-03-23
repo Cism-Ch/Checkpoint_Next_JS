@@ -28,11 +28,11 @@
 }
 
 .navigationWrapper {
-  padding: 0.5rem;
+  margin-top: 2rem;
   border-radius: var(--mantine-radius-xl);
   background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-9));
   transition: background-color 0.2s ease;
-  padding: var(--mantine-spacing-lg) var(--mantine-spacing-md);
+  padding: var(--mantine-spacing-md) var(--mantine-spacing-md);
 }
 
 .inner {
@@ -82,7 +82,7 @@
   color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
 }
 
-.mainLink {
+/* .mainLink {
   text-transform: uppercase;
   font-size: var(--mantine-font-size-sm);
   color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-1));
@@ -100,4 +100,4 @@
 .mainLink.active {
   background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
   color: var(--mantine-color-blue-filled);
-} 
+}  */

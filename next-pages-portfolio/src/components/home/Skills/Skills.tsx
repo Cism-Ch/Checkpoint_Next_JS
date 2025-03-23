@@ -81,7 +81,7 @@ const skills = [
 export default function Skills() {
   return (
     <Box py={80} px={80} bg="light-dark(var(--mantine-color-gray-1),var(--mantine-color-dark-9))" style={{ borderRadius: rem(20) }}>
-      <Title order={2} ta="center" mb={60} size="h1" style={{
+      <Title order={2} ta="center" mb={90} size="h1" style={{
         color: 'var(--mantine-color-text)',
         backgroundImage:
           'linear-gradient(45deg, var(--mantine-color-pink-filled), var(--mantine-color-orange-filled))',
@@ -104,17 +104,20 @@ export default function Skills() {
               radius="lg"
               withBorder
               shadow="md"
-              style={{
-                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                ':hover': {
-                  transform: 'translateY(-5px)',
-                  boxShadow: 'var(--mantine-shadow-md)',
+              styles={{
+                root: {
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                  backgroundColor: 'light-dark(var(--mantine-color-gray-1),var(--mantine-color-black))',
+                  backdropFilter: 'blur(25px)',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                    boxShadow: 'var(--mantine-shadow-md)',
+                  },
                 },
-                backgroundColor: 'var(--mantine-color-black)',
               }}
             >
               <Stack gap="md">
-                <Group justify="space-between" align="flex-start">
+                <Group justify="space-between" align="flex-start" >
                   <Stack gap={4}>
                     <Text size="xl" fw={600} style={{ color: skill.color }}>
                       {skill.name}

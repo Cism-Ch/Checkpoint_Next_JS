@@ -1,20 +1,8 @@
 import Image from 'next/image';
 import { IconCheck } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
-import { Box, Group, List, Stack, Text, ThemeIcon, Title } from '@mantine/core';
-import { fadeInUp, slideIn } from '../../../utils/animations';
+import { Box, Group, List, Stack, Text, ThemeIcon, Title, rem } from '@mantine/core';
+import ScrollAnimation from '../../animations/ScrollAnimation';
 
-const AnimatedStack = ({ children, ...props }: any) => (
-  <motion.div variants={slideIn} initial="initial" animate="animate" {...props}>
-    <Stack gap="xl">{children}</Stack>
-  </motion.div>
-);
-
-const AnimatedBox = ({ children, ...props }: any) => (
-  <motion.div variants={fadeInUp} initial="initial" animate="animate" {...props}>
-    <Box>{children}</Box>
-  </motion.div>
-);
 
 const highlights = [
   "5+ années d'expérience en développement web",
@@ -27,21 +15,24 @@ const highlights = [
 export default function AboutHero() {
   return (
     <Box
-      py={50}
+      py={80}
+      px={80}
+      bg="light-dark(var(--mantine-color-gray-1),var(--mantine-color-dark-9))"
       style={{
-        backgroundColor: 'var(--mantine-color-body)',
+        borderRadius: rem(20),
+        backdropFilter: 'blur(25px)',
       }}
     >
       <Group align="center" justify="space-between" gap={50}>
-        <AnimatedStack maw={600}>
-          <motion.div variants={fadeInUp}>
+        <Stack maw={600}>
+          <ScrollAnimation direction="up">
             <Title
               order={1}
               size={50}
               style={{
                 color: 'var(--mantine-color-text)',
                 backgroundImage:
-                  'linear-gradient(45deg, var(--mantine-color-blue-filled), var(--mantine-color-cyan-filled))',
+                  'linear-gradient(45deg, var(--mantine-color-pink-filled), var(--mantine-color-orange-filled))',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -58,9 +49,8 @@ export default function AboutHero() {
               Développeur passionné par la création d'expériences web exceptionnelles. Je combine
               créativité et expertise technique pour donner vie à des projets innovants.
             </Text>
-          </motion.div>
-
-          <motion.div variants={fadeInUp}>
+          </ScrollAnimation>
+          <ScrollAnimation direction="up" delay={0.1}>
             <List
               spacing="sm"
               size="lg"
@@ -88,19 +78,27 @@ export default function AboutHero() {
                 <List.Item key={index}>{highlight}</List.Item>
               ))}
             </List>
-          </motion.div>
-        </AnimatedStack>
+          </ScrollAnimation>
+        </Stack>
 
-        <AnimatedBox
-          pos="relative"
-          w={{ base: 300, sm: 350, md: 400 }}
-          h={{ base: 375, sm: 437, md: 500 }}
-          style={{
-            boxShadow: 'var(--mantine-shadow-md)',
-            borderRadius: 'var(--mantine-radius-md)',
-            overflow: 'hidden',
-          }}
-        >
+        <ScrollAnimation direction="right" delay={0.2}>
+          <Box
+            pos="relative"
+            w={{ base: 300, sm: 350, md: 400 }}
+            h={{ base: 375, sm: 437, md: 500 }}
+            style={{
+              root: {
+                boxShadow: 'var(--mantine-shadow-md)',
+                borderRadius: 'var(--mantine-radius-md)',
+                overflow: 'hidden',
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: 'var(--mantine-shadow-lg)',
+                },
+              },
+            }}
+          >
           <Image
             src="https://i.pinimg.com/1200x/85/12/16/85121663b1953c040549f99d4105c4a1.jpg"
             alt="Photo professionnelle"
@@ -112,7 +110,8 @@ export default function AboutHero() {
               objectFit: 'cover',
             }}
           />
-        </AnimatedBox>
+          </Box>
+        </ScrollAnimation>
       </Group>
     </Box>
   );

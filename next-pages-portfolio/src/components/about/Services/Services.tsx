@@ -1,15 +1,7 @@
 import { IconCode, IconDeviceMobile, IconPalette, IconServer } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
-import { Box, Card, SimpleGrid, Text, Title } from '@mantine/core';
-import { fadeInUp, staggerContainer } from '../../../utils/animations';
+import { Box, Paper, SimpleGrid, Text, Title, rem } from '@mantine/core';
+import ScrollAnimation from '../../animations/ScrollAnimation';
 
-const AnimatedCard = ({ children, ...props }: any) => (
-  <motion.div variants={fadeInUp} initial="initial" animate="animate" {...props}>
-    <Card padding="xl" radius="md" withBorder>
-      {children}
-    </Card>
-  </motion.div>
-);
 
 const services = [
   {
@@ -40,35 +32,67 @@ const services = [
 
 export default function Services() {
   return (
-    <Box py={50}>
-      <Title order={2} ta="center" mb={50}>
+    <Box py={80} px={80} bg="light-dark(var(--mantine-color-gray-1),var(--mantine-color-dark-9))" style={{ borderRadius: rem(20) }}>
+      <Title order={2} ta="center" mb={90} size="h1" style={{
+        color: 'var(--mantine-color-text)',
+        backgroundImage:
+          'linear-gradient(45deg, var(--mantine-color-pink-filled), var(--mantine-color-orange-filled))',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+      }}>
         Mes Services
       </Title>
 
-      <motion.div
-        variants={staggerContainer}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-      >
-        <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="xl">
-          {services.map((service, index) => (
-            <AnimatedCard key={index}>
-              <service.icon
-                size={40}
-                stroke={1.5}
-                style={{ marginBottom: 20, color: 'var(--mantine-color-blue-filled)' }}
-              />
-              <Text size="lg" fw={500} mb="sm">
+      <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={30}>
+        {services.map((service, index) => (
+          <ScrollAnimation
+            key={service.title}
+            direction="up"
+            delay={index * 0.1}
+            once
+          >
+            <Paper
+              p="xl"
+              radius="lg"
+              withBorder
+              shadow="md"
+              styles={{
+                root: {
+                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                  backgroundColor: 'light-dark(var(--mantine-color-gray-1),var(--mantine-color-black))',
+                  backdropFilter: 'blur(25px)',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                    boxShadow: 'var(--mantine-shadow-md)',
+                  },
+                },
+              }}
+            >
+              <ScrollAnimation direction="right" delay={index * 0.1 + 0.2} once>
+                <service.icon
+                  size={64}
+                  stroke={1.5}
+                  style={{
+                    marginBottom: rem(20),
+                    color: 'var(--mantine-color-pink-filled)',
+                    opacity: 0.8,
+                  }}
+                />
+              </ScrollAnimation>
+              <Text size="xl" fw={600} mb="sm" style={{
+                backgroundImage: 'linear-gradient(45deg, var(--mantine-color-pink-filled), var(--mantine-color-orange-filled))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>
                 {service.title}
               </Text>
-              <Text size="sm" c="dimmed">
+              <Text size="md" c="dimmed" style={{ maxWidth: rem(300) }}>
                 {service.description}
               </Text>
-            </AnimatedCard>
-          ))}
-        </SimpleGrid>
-      </motion.div>
+            </Paper>
+          </ScrollAnimation>
+        ))}
+      </SimpleGrid>
     </Box>
   );
 }

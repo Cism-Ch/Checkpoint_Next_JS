@@ -130,3 +130,6 @@ dist
 .pnp.*
 
 .DS_Store
+
+# Docs folder
+next-pages-portfolio/docs

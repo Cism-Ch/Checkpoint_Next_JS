@@ -103,18 +103,18 @@
 }
 
 .title {
-  color: var(--mantine-color-white);
-  font-family: Greycliff CF, var(--mantine-font-family);
+  color: light-dark(var(--mantine-color-dark-9),var(--mantine-color-white));
+  font-family: Raleway, var(--mantine-font-family);
   font-weight: 900;
-  line-height: 1.1;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.4;
+  font-size: clamp(2rem, 5vw, 4.5rem);
   margin-bottom: clamp(1rem, 3vh, var(--mantine-spacing-xl));
   position: relative;
   display: inline-block;
   padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
   border-radius: var(--mantine-radius-md);
   background: light-dark(
-    rgb(0, 0, 0),
+    transparent,
     transparent
   );
   backdrop-filter: light-dark(blur(1000px), blur(50px));
