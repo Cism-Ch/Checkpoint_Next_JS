@@ -132,4 +132,4 @@ dist
 .DS_Store
 
 # Docs folder
-next-pages-portfolio/docs
+docs/

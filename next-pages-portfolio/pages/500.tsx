@@ -1,8 +1,18 @@
+/**
+ * 500 Page - Custom error page for handling server-side errors
+ * Features animated components and provides options to retry or return home
+ * Shares animation components with 404 page for consistency
+ */
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button, Container, Group, Text, Title } from '@mantine/core';
 import SEO from '../src/components/seo/SEO';
 
+/**
+ * Reusable animated title component
+ * Provides fade-in and slide-up animation for error code display
+ * @param {any} props - Component props including children for title content
+ */
 const AnimatedTitle = ({ children, ...props }: any) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -16,6 +26,11 @@ const AnimatedTitle = ({ children, ...props }: any) => (
   </motion.div>
 );
 
+/**
+ * Reusable animated text component
+ * Provides delayed fade-in and slide-up animation for error descriptions
+ * @param {any} props - Component props including children for text content
+ */
 const AnimatedText = ({ children, ...props }: any) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -29,6 +44,16 @@ const AnimatedText = ({ children, ...props }: any) => (
   </motion.div>
 );
 
+/**
+ * ServerError page component
+ * Displays a 500 error message with:
+ * - Animated title and description
+ * - SEO optimization for server error
+ * - Two action buttons:
+ *   1. Return home button
+ *   2. Retry button that reloads the page
+ * - Consistent styling with theme and 404 page
+ */
 export default function ServerError() {
   return (
     <>

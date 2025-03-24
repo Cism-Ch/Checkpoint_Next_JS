@@ -1,8 +1,16 @@
+/**
+ * 404 Page - Custom error page for handling not found routes
+ * Features animated components and a user-friendly interface to guide users back to the home page
+ */
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button, Container, Group, Text, Title } from '@mantine/core';
 import SEO from '../src/components/seo/SEO';
 
+/**
+ * Animated title component with fade-in and slide-up animation
+ * @param {any} props - Component props including children for title content
+ */
 const AnimatedTitle = ({ children, ...props }: any) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -16,6 +24,10 @@ const AnimatedTitle = ({ children, ...props }: any) => (
   </motion.div>
 );
 
+/**
+ * Animated text component with delayed fade-in and slide-up animation
+ * @param {any} props - Component props including children for text content
+ */
 const AnimatedText = ({ children, ...props }: any) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -29,6 +41,14 @@ const AnimatedText = ({ children, ...props }: any) => (
   </motion.div>
 );
 
+/**
+ * NotFound page component
+ * Displays a 404 error message with:
+ * - Animated title and description
+ * - SEO optimization for error page
+ * - Call-to-action button to return home
+ * - Consistent styling with the main theme
+ */
 export default function NotFound() {
   return (
     <>

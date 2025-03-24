@@ -1,3 +1,9 @@
+/**
+ * Style imports for the application
+ * - Mantine core styles for base components
+ * - Mantine carousel styles for carousel functionality
+ * - Global styles for custom application-wide styling
+ */
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import '../src/styles/global.css';
@@ -9,6 +15,15 @@ import { theme } from '../src/theme/theme';
 import Layout from '../src/components/layout/MainLayout/Layout';
 import SEO from '../src/components/seo/SEO';
 
+/**
+ * Main application component that wraps all pages
+ * Configures:
+ * - Mantine UI framework with theme and color scheme
+ * - Global layout structure
+ * - Meta tags and SEO settings
+ *
+ * @param {AppProps} props - Next.js app properties containing the current page component and its props
+ */
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>

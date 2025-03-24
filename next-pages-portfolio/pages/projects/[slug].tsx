@@ -1,3 +1,8 @@
+/**
+ * Project Detail Page
+ * Displays detailed information about a specific project
+ * Uses static site generation for improved performance
+ */
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,6 +24,11 @@ import ProjectGallery from '../../src/components/projects/ProjectGallery/Project
 import { projects } from '../../src/data/projects';
 import { Project } from '../../src/types/project';
 
+/**
+ * Animated title component with fade-in and slide-up animation
+ * Used for section headers in the project detail page
+ * @param {any} props Component props including children for title content
+ */
 const AnimatedTitle = ({ children, ...props }: any) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -32,6 +42,11 @@ const AnimatedTitle = ({ children, ...props }: any) => (
   </motion.div>
 );
 
+/**
+ * Animated text component with delayed fade-in
+ * Used for project descriptions and details
+ * @param {any} props Component props including children for text content
+ */
 const AnimatedText = ({ children, ...props }: any) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -43,6 +58,11 @@ const AnimatedText = ({ children, ...props }: any) => (
   </motion.div>
 );
 
+/**
+ * Animated paper component with scale and fade animation
+ * Used for project screenshots and gallery items
+ * @param {any} props Component props including children for paper content
+ */
 const AnimatedPaper = ({ children, ...props }: any) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.95 }}
@@ -56,10 +76,28 @@ const AnimatedPaper = ({ children, ...props }: any) => (
   </motion.div>
 );
 
+/**
+ * Props interface for the ProjectDetail component
+ */
 interface ProjectDetailProps {
-  project: Project;
+  project: Project;  // Project data fetched during static generation
 }
 
+/**
+ * ProjectDetail component displays comprehensive project information:
+ * - Title and technologies used
+ * - Project description
+ * - Links to GitHub and demo
+ * - Screenshot gallery (if available)
+ * - Project gallery (if available)
+ *
+ * Features:
+ * - Animated content sections
+ * - Responsive image grid
+ * - Navigation back to projects list
+ *
+ * @param {ProjectDetailProps} props Project data from static generation
+ */
 export default function ProjectDetail({ project }: ProjectDetailProps) {
   if (!project) {
     return null;
@@ -165,6 +203,11 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
   );
 }
 
+/**
+ * Generates static paths for all projects
+ * Creates a route for each project using its slug
+ * @returns {GetStaticPaths} Paths configuration for Next.js static generation
+ */
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = projects.map((project) => ({
     params: { slug: project.slug },
@@ -176,6 +219,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
+/**
+ * Fetches static props for a specific project
+ * Finds project data based on the URL slug parameter
+ * Returns 404 if project is not found
+ * @param {GetStaticProps} context Next.js static generation context
+ * @returns {GetStaticProps} Props for the ProjectDetail component
+ */
 export const getStaticProps: GetStaticProps<ProjectDetailProps> = async ({ params }) => {
   const project = projects.find((p) => p.slug === params?.slug);
 
