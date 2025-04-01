@@ -1,3 +1,11 @@
+/**
+ * FeaturedProjects.tsx
+ * 
+ * Composant qui affiche une sélection de projets importants sur la page d'accueil.
+ * Ces projets sont filtrés à partir de la liste complète (marqués comme "featured")
+ * et présentés avec des animations au défilement pour une meilleure expérience utilisateur.
+ */
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Box, Button, Group, Stack, Text, Title } from '@mantine/core';
@@ -5,18 +13,25 @@ import ScrollAnimation from '../../animations/ScrollAnimation';
 import { projects } from '../../../data/projects';
 import classes from './FeaturedProjects.module.css';
 
-// Filtre les projets mis en avant
+// Filtre les projets mis en avant (propriété featured=true) et limite à maximum 3 projets
 const featuredProjects = projects
   .filter((project) => project.featured)
   .slice(0, 3); // Limite à 3 projets
 
+/**
+ * Composant principal pour la section des projets en vedette
+ * Utilise les animations de défilement et affiche les projets dans une grille responsive
+ */
 export default function FeaturedProjects() {
   return (
     <Box className={classes.container}>
+      {/* Container principal avec fond stylisé (voir CSS) */}
       <Box className={classes.inner}>
         <Stack gap="xl">
+          {/* Section titre avec animation au défilement */}
           <ScrollAnimation direction="up">
             <Stack gap="xl" align="center">
+              {/* Titre principal avec dégradé de couleurs */}
               <Title
                 order={2}
                 size='h1'
@@ -32,6 +47,7 @@ export default function FeaturedProjects() {
               >
                 Projets en Vedette
               </Title>
+              {/* Sous-titre explicatif */}
               <Text
                 size="xl"
                 style={{
@@ -45,16 +61,21 @@ export default function FeaturedProjects() {
             </Stack>
           </ScrollAnimation>
 
+          {/* Grille de projets - layout responsive défini dans le CSS */}
           <Box className={classes.projectsGrid}>
+            {/* Mapping des projets filtrés avec animations séquentielles */}
             {featuredProjects.map((project, index) => (
               <ScrollAnimation
                 key={project.id}
                 direction="up"
-                delay={index * 0.2}
+                delay={index * 0.2} // Délai progressif basé sur l'index pour effet cascade
               >
+                {/* Carte de projet avec effet de survol */}
                 <Box className={classes.projectCard}>
+                  {/* Animation de l'image venant de la droite */}
                   <ScrollAnimation direction="right" delay={index * 0.2 + 0.1}>
                     <div className={classes.imageWrapper}>
+                      {/* Image du projet avec Next.js Image pour optimisation */}
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -64,6 +85,7 @@ export default function FeaturedProjects() {
                       />
                     </div>
                   </ScrollAnimation>
+                  {/* Contenu textuel de la carte */}
                   <Stack
                     p="md"
                     style={{
@@ -75,7 +97,9 @@ export default function FeaturedProjects() {
                       paddingTop: '20px',
                     }}
                   >
+                    {/* Animation du contenu venant de la gauche */}
                     <ScrollAnimation direction="left" delay={index * 0.2 + 0.2}>
+                      {/* Titre du projet */}
                       <Title
                         order={3}
                         size="h3"
@@ -83,9 +107,11 @@ export default function FeaturedProjects() {
                       >
                         {project.title}
                       </Title>
+                      {/* Description courte du projet */}
                       <Text className={classes.description} c="dimmed" size="md">
                         {project.description}
                       </Text>
+                      {/* Bouton d'action placé en bas à droite */}
                       <Group justify="flex-end" mt="auto">
                         <Button
                           component={Link}
@@ -94,7 +120,7 @@ export default function FeaturedProjects() {
                           styles={{
                             root: {
                               '&:hover': {
-                                transform: 'translateY(-2px)',
+                                transform: 'translateY(-2px)', // Effet de lévitation au survol
                                 boxShadow: 'var(--mantine-shadow-sm)',
                               },
                             },

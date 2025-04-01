@@ -1,9 +1,10 @@
+/* Conteneur principal - Section contact avec fond d'image */
 .container {
   position: relative;
   min-height: 100vh;
   width: 100vw;
   margin-left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%);  /* Centrage horizontal du conteneur */
   background-image: url('/contact.jpg');
   background-size: cover;
   background-position: center;
@@ -15,15 +16,17 @@
   overflow: hidden;
 }
 
+/* Style de base pour les overlays */
 .overlay {
   position: absolute;
   left: 0;
   width: 100%;
   height: 50%;
-  pointer-events: none;
+  pointer-events: none;  /* L'overlay ne doit pas intercepter les événements de souris */
   z-index: 1;
 }
 
+/* Dégradés en haut et en bas pour améliorer la lisibilité du contenu */
 .overlayTop,
 .overlayBottom {
   position: absolute;
@@ -34,6 +37,7 @@
   pointer-events: none;
 }
 
+/* Dégradé supérieur - du blanc/noir vers transparent */
 .overlayTop {
   top: 0;
   background: linear-gradient(
@@ -43,6 +47,7 @@
   );
 }
 
+/* Dégradé inférieur - du blanc/noir vers transparent */
 .overlayBottom {
   bottom: 0;
   background: linear-gradient(
@@ -52,6 +57,7 @@
   );
 }
 
+/* Conteneur du contenu principal avec z-index pour s'afficher au-dessus des overlays */
 .content {
   position: relative;
   z-index: 2;
@@ -62,6 +68,7 @@
   padding: 0 var(--mantine-spacing-md);
 }
 
+/* Animation d'effet "glitch" pour le texte */
 @keyframes glitch {
   0% {
     text-shadow:
@@ -70,6 +77,7 @@
       0.025em 0.05em 0 light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
   }
 
+  /* Différentes étapes de l'effet glitch avec des ombres de texte colorées */
   14% {
     text-shadow:
       0.05em 0 0 light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8)),
@@ -113,6 +121,7 @@
   }
 }
 
+/* Animation de clignotement pour l'effet néon */
 @keyframes neonFlicker {
   0%,
   100% {
@@ -122,19 +131,20 @@
     opacity: 1;
   }
   42% {
-    opacity: 0.8;
+    opacity: 0.8;  /* Légère baisse d'opacité */
   }
   43% {
     opacity: 1;
   }
   45% {
-    opacity: 0.3;
+    opacity: 0.3;  /* Forte baisse d'opacité - effet clignotement */
   }
   46% {
     opacity: 1;
   }
 }
 
+/* Animation pour l'effet de lignes de scan (style rétro CRT) */
 @keyframes scanlines {
   0% {
     transform: translateY(-100%);
@@ -144,8 +154,9 @@
   }
 }
 
+/* Style du titre principal avec effet néon */
 .title {
-  --neon-color: var(--mantine-color-white);
+  --neon-color: var(--mantine-color-white);  /* Couleur de l'effet néon */
   color: light-dark(var(--mantine-color-gray-5), var(--mantine-color-dark-9));
   text-align: center;
   margin-bottom: calc(var(--mantine-spacing-xl) * 2);
@@ -155,18 +166,19 @@
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  animation: neonFlicker 2.5s infinite;
-  -webkit-text-stroke: 2px var(--mantine-color-brand);
-  text-shadow:
+  animation: neonFlicker 2.5s infinite;  /* Animation de clignotement néon */
+  -webkit-text-stroke: 2px var(--mantine-color-brand);  /* Contour du texte */
+  text-shadow:  /* Multiples ombres pour effet de lueur */
     0 0 10px var(--neon-color),
     0 0 20px var(--neon-color),
     0 0 40px var(--neon-color),
     0 0 60px var(--neon-color);
-  box-shadow:
+  box-shadow:  /* Ombres intérieures et extérieures */
     inset 0 0 10px var(--neon-color),
     0 0 20px var(--neon-color),
     0 0 40px var(--neon-color);
 
+  /* Pseudo-élément pour afficher un texte "CONTACT" géant en arrière-plan */
   &::before {
     content: 'CONTACT';
     position: fixed;
@@ -181,6 +193,7 @@
     pointer-events: none;
   }
 
+  /* Adaptation pour les appareils mobiles */
   @media (max-width: 48em) {
     font-size: rem(40px);
     margin-bottom: var(--mantine-spacing-xl);
@@ -191,6 +204,7 @@
   }
 }
 
+/* Effet de lignes de scan sur l'ensemble de la page (style moniteur CRT) */
 .scanlines {
   position: fixed;
   top: 0;
@@ -203,32 +217,36 @@
     rgba(0, 0, 0, 0.05) 50%,
     transparent 100%
   );
-  background-size: 100% 4px;
+  background-size: 100% 4px;  /* Hauteur des lignes de scan */
   pointer-events: none;
   z-index: 10;
 }
 
+/* Grille des cartes d'information de contact */
 .infoCards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* Grille responsive */
   gap: var(--mantine-spacing-lg);
   margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
 }
 
+/* Style des cartes de contact avec effets au survol */
 .card {
   background: light-dark(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);  /* Effet de flou pour la transparence */
   padding: var(--mantine-spacing-lg);
   border-radius: var(--mantine-radius-md);
   border: 1px solid light-dark(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
   transition: all 0.3s ease;
 
+  /* Effets au survol de la carte */
   &:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px) scale(1.02);  /* Léger agrandissement et élévation */
     box-shadow: 0 0 20px var(--mantine-color-orange-4);
     border-color: var(--mantine-color-orange-4);
   }
 
+  /* Ligne supérieure animée au survol */
   &::before {
     content: '';
     position: absolute;
@@ -242,27 +260,30 @@
   }
 
   &:hover::before {
-    transform: scaleX(1);
+    transform: scaleX(1);  /* La ligne s'étend au survol */
   }
 }
 
+/* Texte à l'intérieur des cartes */
 .cardContent {
   color: var(--mantine-color-white);
 }
 
+/* Style du formulaire avec effets visuels */
 .form {
   background: light-dark(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.52));
   backdrop-filter: blur(10px);
   padding: calc(var(--mantine-spacing-xl) * 1.5);
   border-radius: var(--mantine-radius-lg);
   width: 100%;
-  max-width: min(90%, 600px);
+  max-width: min(90%, 600px);  /* Limiter la largeur mais rester responsive */
   margin: 0 auto;
   border: 1px solid light-dark(rgba(255, 255, 255, 0.1), rgba(255, 254, 253, 0.44));
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
 
+  /* Effet de brillance animé qui passe sur le formulaire */
   &::before {
     content: '';
     position: absolute;
@@ -276,6 +297,7 @@
   }
 }
 
+/* Animation de l'effet de brillance */
 @keyframes shine {
   0% {
     transform: translateX(-100%) rotate(45deg);
@@ -285,17 +307,19 @@
   }
 }
 
+/* Titre à l'intérieur du formulaire */
 .formTitle {
   color: var(--mantine-color-white);
   margin-bottom: var(--mantine-spacing-lg);
 }
 
+/* Adaptation pour les appareils mobiles */
 @media (max-width: 48em) {
   .container {
     padding: var(--mantine-spacing-md) 0;
   }
 
   .form {
-    padding: var(--mantine-spacing-lg);
+    padding: var(--mantine-spacing-lg);  /* Moins de padding sur mobile */
   }
 }

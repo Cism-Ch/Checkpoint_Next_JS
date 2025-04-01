@@ -107,7 +107,7 @@ export const theme = createTheme({
     Button: {
       defaultProps: {
         radius: 'xl',
-        size: 'md',
+        size: 'lg',
       },
       styles: (_theme: MantineTheme) => ({
         root: {
@@ -124,7 +124,7 @@ export const theme = createTheme({
     Card: {
       defaultProps: {
         radius: 'xl',
-        shadow: 'sm',
+        shadow: 'md',
       },
     },
     Anchor: {

@@ -3,8 +3,43 @@ import Image, { ImageProps } from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Box, Skeleton } from '@mantine/core';
 
+/**
+ * @component OptimizedImage
+ * @description Composant d'image optimisé qui gère le chargement progressif, les états d'erreur
+ * et propose un placeholder animé. Utilise Next.js Image pour l'optimisation automatique et
+ * Framer Motion pour les animations fluides.
+ *
+ * @props
+ * - `withSkeleton` (boolean) : Active/désactive l'affichage du placeholder pendant le chargement
+ * - `aspectRatio` (number) : Définit le ratio hauteur/largeur de l'image (ex: 16/9)
+ * - `alt` (string) : Texte alternatif pour l'accessibilité
+ * - Toutes les props de next/image sont supportées sauf onLoadingComplete et onError
+ *
+ * @states
+ * - `isLoading` : Gère l'état de chargement de l'image
+ * - `hasError` : Indique si une erreur est survenue lors du chargement
+ *
+ * @animations
+ * - Transition fluide entre le skeleton et l'image via AnimatePresence
+ * - Fade-in de l'image une fois chargée
+ * - Animation du skeleton pendant le chargement
+ *
+ * @example
+ * ```tsx
+ * <OptimizedImage
+ *   src="/images/photo.jpg"
+ *   alt="Description de l'image"
+ *   width={800}
+ *   height={600}
+ *   withSkeleton={true}
+ *   aspectRatio={4/3}
+ * />
+ * ```
+ */
 interface OptimizedImageProps extends Omit<ImageProps, 'onLoadingComplete' | 'onError'> {
+  /** Active/désactive l'affichage du placeholder pendant le chargement */
   withSkeleton?: boolean;
+  /** Définit le ratio hauteur/largeur de l'image (ex: 16/9) */
   aspectRatio?: number;
 }
 

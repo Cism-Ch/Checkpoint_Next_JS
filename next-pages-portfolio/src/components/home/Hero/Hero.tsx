@@ -31,10 +31,12 @@ export default function Hero() {
       <Dots className={classes.dots} style={{ right: 0, top: 60 }} />
       <div className={classes.inner}>
         <div className={classes.content}>
+          {/* Titre principal avec un dégradé de couleur */}
           <Title
             className={classes.title}
             data-testid="hero-title"
             style={{
+              // Application d'un dégradé de couleur au texte
               color: `linear-gradient(${titleGradient.deg}deg, ${titleGradient.from}, ${titleGradient.to})`,
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
@@ -44,33 +46,38 @@ export default function Hero() {
           >
             Hello, I'm a <span className={classes.highlight}>Full Stack</span> Developer
           </Title>
+          
+          {/* Description du profil avec adaptation pour mobile */}
           <Text className={classes.text} data-testid="hero-text" c="white" pl={!isMobile ? 15 : 0}>
             Passionné par le développement web et les nouvelles technologies. Je crée des
             applications web modernes et performantes.
           </Text>
 
+          {/* Groupe de boutons pour les liens sociaux */}
           <Group className={classes.controls} align="center" justify="flex-start" gap="md" wrap="wrap" pl={!isMobile ? 15 : 0}>
+            {/* Bouton GitHub avec icône */}
             <Button
               component="a"
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              size="lg"
+              size="xl"
               variant="filled"
               className={classes.button}
-              leftSection={<IconBrandGithub size={20} />}
+              leftSection={<IconBrandGithub size={30} />}
             >
               GitHub
             </Button>
+            {/* Bouton LinkedIn avec icône */}
             <Button
               component="a"
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              size="lg"
+              size="xl"
               variant="white"
               className={classes.button}
-              leftSection={<IconBrandLinkedin size={20} />}
+              leftSection={<IconBrandLinkedin size={30} />}
             >
               LinkedIn
             </Button>
@@ -96,7 +103,7 @@ export default function Hero() {
           aria-label="Défiler vers le bas"
           
         >
-          <IconChevronDown size={32} />
+          <IconChevronDown size={38} />
         </ActionIcon>
       </Tooltip>
     </div>

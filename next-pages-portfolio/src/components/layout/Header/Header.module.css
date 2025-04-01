@@ -1,3 +1,10 @@
+/* En-tête principal du site
+ * - Hauteur fixe de 60px
+ * - Arrière-plan adaptatif pour les thèmes clair/sombre
+ * - Bordure inférieure pour la séparation visuelle
+ * - Position sticky pour rester visible lors du défilement
+ * - z-index élevé pour rester au-dessus des autres éléments
+ */
 .header {
   height: rem(60px);
   background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-9));
@@ -7,6 +14,9 @@
   z-index: 100;
 }
 
+/* Section standard de l'en-tête
+ * Structure de base pour l'alignement des éléments
+ */
 .section {
   display: flex;
   align-items: center;
@@ -27,6 +37,12 @@
   justify-content: flex-end;
 }
 
+/* Conteneur de navigation
+ * - Marge supérieure pour l'espacement
+ * - Coins arrondis pour l'esthétique
+ * - Arrière-plan adaptatif avec transition fluide
+ * - Espacement interne cohérent
+ */
 .navigationWrapper {
   margin-top: 2rem;
   border-radius: var(--mantine-radius-xl);
@@ -35,6 +51,11 @@
   padding: var(--mantine-spacing-md) var(--mantine-spacing-md);
 }
 
+/* Conteneur interne de l'en-tête
+ * - Hauteur fixe pour la cohérence
+ * - Disposition flex pour l'alignement des éléments
+ * - Espacement uniforme entre les éléments
+ */
 .inner {
   height: rem(60px);
   display: flex;
@@ -77,6 +98,10 @@
   }
 }
 
+/* Style du logo
+ * - Suppression du soulignement des liens
+ * - Couleur adaptative selon le thème
+ */
 .logo {
   text-decoration: none;
   color: light-dark(var(--mantine-color-black), var(--mantine-color-white));

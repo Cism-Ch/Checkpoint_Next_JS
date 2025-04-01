@@ -1,9 +1,18 @@
+/**
+ * FeaturedProjects.module.css
+ * 
+ * Fichier de styles pour la section des projets en vedette
+ * Inclut des styles pour le conteneur principal, les cartes de projet,
+ * les effets de survol et les adaptations responsives.
+ */
+
+/* Conteneur principal occupant toute la largeur avec une hauteur minimale */
 .container {
   width: 100vw;
   min-height: 100vh;
   margin-left: 50%;
-  transform: translateX(-50%);
-  padding: clamp(4rem, 10vh, 8rem) var(--mantine-spacing-md);
+  transform: translateX(-50%); /* Technique de centrage avec décalage négatif */
+  padding: clamp(4rem, 10vh, 8rem) var(--mantine-spacing-md); /* Padding responsive */
   background-color: var(--mantine-color-black);
   background-size: cover;
   background-position: center;
@@ -12,6 +21,7 @@
   margin-bottom: clamp(4rem, 10vh, 8rem);
 }
 
+/* Pseudo-élément pour créer un effet d'overlay dégradé sur le fond */
 .container::before {
   content: '';
   position: absolute;
@@ -21,27 +31,30 @@
   height: 100%;
   background: linear-gradient(
     to bottom,
-    light-dark(rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.9)) 0%,
+    light-dark(rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.9)) 0%, /* Adaptatif au thème clair/sombre */
     light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7)) 50%,
     light-dark(rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.9)) 100%
   );
   z-index: 1;
 }
 
+/* Conteneur interne qui limite la largeur maximale et positionne le contenu au-dessus de l'overlay */
 .inner {
   max-width: var(--mantine-breakpoint-xl);
   margin: 0 auto;
   padding: 0 var(--mantine-spacing-md);
   position: relative;
-  z-index: 2;
+  z-index: 2; /* S'assure que le contenu apparaît au-dessus du pseudo-élément ::before */
 }
 
+/* Style du titre des projets */
 .title {
   text-align: center;
   margin-bottom: var(--mantine-spacing-xl);
   color: var(--mantine-color-orange-4);
 }
 
+/* Style de la description générale */
 .description {
   text-align: center;
   text-justify: center;
@@ -50,51 +63,56 @@
   padding: var(--mantine-spacing-md);
 }
 
+/* Grille responsive pour les cartes de projet */
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-  gap: clamp(var(--mantine-spacing-xl), 3vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); /* Colonnes adaptatives */
+  gap: clamp(var(--mantine-spacing-xl), 3vw, 3rem); /* Espacement responsive entre les cartes */
   width: 100%;
   margin-top: clamp(3rem, 5vh, 5rem);
 }
 
+/* Carte de projet individuelle avec effet de transition au survol */
 .projectCard {
   height: 100%;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease; /* Animation douce pour l'effet de survol */
 }
 
+/* Effet de lévitation au survol des cartes */
 .projectCard:hover {
-  transform: translateY(-15px);
+  transform: translateY(-15px); /* Déplace la carte vers le haut au survol */
 }
 
+/* Conteneur de l'image avec ratio d'aspect fixe */
 .imageWrapper {
   position: relative;
   width: 100%;
-  padding-top: 66.67%; /* 3:2 aspect ratio */
+  padding-top: 66.67%; /* Ratio d'aspect 3:2 (width/height) */
   overflow: hidden;
-  
 }
 
+/* Style de l'image à l'intérieur du conteneur */
 .image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Assure que l'image couvre tout l'espace sans déformation */
   border-top-left-radius: var(--mantine-radius-md);
   border-top-right-radius: var(--mantine-radius-md);
   border: 1px solid var(--mantine-color-transparent);
 }
 
+/* Adaptations pour les écrans mobiles */
 @media (max-width: $mantine-breakpoint-sm) {
   .container {
-    padding: var(--mantine-spacing-lg) var(--mantine-spacing-xs);
+    padding: var(--mantine-spacing-lg) var(--mantine-spacing-xs); /* Padding réduit sur mobile */
   }
 
   .projectsGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Une seule colonne sur mobile */
   }
 }

@@ -1,9 +1,21 @@
+/**
+ * AboutHero Component
+ * Section héros de la page À propos, présentant une introduction personnelle
+ * avec une image et des points clés professionnels
+ *
+ * @module AboutHero
+ */
+
 import Image from 'next/image';
 import { IconCheck } from '@tabler/icons-react';
 import { Box, Group, List, Stack, Text, ThemeIcon, Title, rem } from '@mantine/core';
 import ScrollAnimation from '../../animations/ScrollAnimation';
 
-
+/**
+ * Points clés professionnels
+ * Liste des compétences et expériences principales mises en avant
+ * @type {string[]}
+ */
 const highlights = [
   "5+ années d'expérience en développement web",
   'Spécialiste React et Next.js',
@@ -12,6 +24,19 @@ const highlights = [
   'Adepte des bonnes pratiques de développement',
 ];
 
+/**
+ * Composant principal AboutHero
+ * Affiche une section héros avec :
+ * - Titre animé avec dégradé
+ * - Description personnelle
+ * - Liste de points clés avec icônes
+ * - Image de profil avec effets de survol
+ *
+ * Utilise des animations au défilement et un style glassmorphism
+ * Responsive sur différentes tailles d'écran
+ *
+ * @returns {JSX.Element} Section héros de la page À propos
+ */
 export default function AboutHero() {
   return (
     <Box
@@ -99,6 +124,7 @@ export default function AboutHero() {
               },
             }}
           >
+          {/* Image de profil avec optimisation Next.js */}
           <Image
             src="https://i.pinimg.com/1200x/85/12/16/85121663b1953c040549f99d4105c4a1.jpg"
             alt="Photo professionnelle"

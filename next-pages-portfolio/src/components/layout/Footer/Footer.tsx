@@ -1,3 +1,11 @@
+/**
+ * Footer.tsx
+ * 
+ * Composant de pied de page pour l'ensemble du site.
+ * Affiche les liens vers les réseaux sociaux, le copyright et les technologies utilisées.
+ * Responsive et s'adapte aux différentes tailles d'écran.
+ */
+
 import Link from 'next/link';
 import {
   IconBrandGithub,
@@ -8,6 +16,10 @@ import {
 import { ActionIcon, Container, Group, Stack, Text } from '@mantine/core';
 import classes from './Footer.module.css';
 
+/**
+ * Configuration des liens sociaux à afficher dans le footer
+ * Chaque objet contient l'icône, l'URL et le label pour l'accessibilité
+ */
 const socialLinks = [
   {
     icon: IconBrandGithub,
@@ -31,11 +43,16 @@ const socialLinks = [
   },
 ];
 
+/**
+ * Composant principal du pied de page
+ */
 export default function Footer() {
   return (
     <footer className={classes.footer}>
       <Container size="lg" >
+        {/* Partie principale du footer avec logo et liens sociaux */}
         <div className={classes.inner}>
+          {/* Partie gauche: Nom du site et copyright */}
           <Stack gap="xl">
             <Text size="xl" fw={800}>
               Portfolio
@@ -45,6 +62,7 @@ export default function Footer() {
             </Text>
           </Stack>
 
+          {/* Partie droite: Icônes de réseaux sociaux */}
           <Group gap="md" justify="flex-end" wrap="nowrap">
             {socialLinks.map((link) => (
               <ActionIcon
@@ -64,6 +82,7 @@ export default function Footer() {
           </Group>
         </div>
 
+        {/* Partie inférieure du footer - crédits des technologies */}
         <Group justify="center" className={classes.afterFooter}>
           <Text size="sm" c="dimmed">
             Développé avec passion en utilisant{' '}

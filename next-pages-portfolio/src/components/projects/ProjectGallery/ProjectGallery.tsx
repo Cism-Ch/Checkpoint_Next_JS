@@ -1,9 +1,26 @@
+/**
+ * ProjectGallery Component
+ *
+ * Affiche une galerie d'images interactive avec:
+ * - Carousel responsive pour la navigation
+ * - Lightbox modal pour l'affichage en plein écran
+ * - Animations fluides à l'apparition des images
+ * - Navigation par miniatures dans le modal
+ */
+
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Carousel } from '@mantine/carousel';
 import { Group, Modal, Paper, Text, UnstyledButton } from '@mantine/core';
 
+/**
+ * Interface des props du composant ProjectGallery
+ * @interface ProjectGalleryProps
+ * @property {Object[]} images - Tableau des images à afficher
+ * @property {string} images[].url - URL de l'image
+ * @property {string} [images[].caption] - Légende optionnelle de l'image
+ */
 interface ProjectGalleryProps {
   images: {
     url: string;
@@ -11,11 +28,23 @@ interface ProjectGalleryProps {
   }[];
 }
 
+/**
+ * Composant AnimatedPaper
+ * Wrapper animé pour les images de la galerie
+ *
+ * Caractéristiques:
+ * - Animation de fade-in et scale à l'apparition
+ * - Effet de survol avec curseur pointer
+ * - Support de la propagation des props
+ *
+ * @param {Object} props - Props du composant
+ * @param {React.ReactNode} props.children - Contenu à animer
+ */
 const AnimatedPaper = ({ children, ...props }: any) => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.95 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.5 }}
+    initial={{ opacity: 0, scale: 0.95 }}  // État initial invisible et légèrement réduit
+    animate={{ opacity: 1, scale: 1 }}     // Animation vers opacité totale et taille normale
+    transition={{ duration: 0.5 }}         // Durée de l'animation
     {...props}
   >
     <Paper shadow="md" radius="md" style={{ cursor: 'pointer' }}>
@@ -24,14 +53,33 @@ const AnimatedPaper = ({ children, ...props }: any) => (
   </motion.div>
 );
 
+/**
+ * Composant ProjectGallery
+ * Gère l'affichage et l'interaction avec la galerie d'images
+ *
+ * Fonctionnalités:
+ * - Affichage des images en carousel
+ * - Ouverture en lightbox au clic
+ * - Navigation entre les images
+ * - Affichage des légendes
+ *
+ * @param {ProjectGalleryProps} props - Props du composant
+ * @returns {JSX.Element | null} Galerie d'images ou null si pas d'images
+ */
 export default function ProjectGallery({ images }: ProjectGalleryProps) {
+  // États pour gérer le modal et l'image active
   const [opened, setOpened] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
 
+  // Protection contre les tableaux vides
   if (!images || images.length === 0) {
     return null;
   }
 
+  /**
+   * Gère l'ouverture du lightbox
+   * @param {number} index - Index de l'image à afficher
+   */
   const openLightbox = (index: number) => {
     setActiveImage(index);
     setOpened(true);

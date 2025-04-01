@@ -1,3 +1,11 @@
+/**
+ * Skills Component
+ * Affiche une grille de compétences techniques avec des indicateurs visuels de niveau
+ * et des animations au défilement
+ *
+ * @module Skills
+ */
+
 import {
   IconBrandNextjs,
   IconBrandNodejs,
@@ -12,6 +20,15 @@ import {
 import { Box, Group, Paper, RingProgress, SimpleGrid, Stack, Text, Title, rem } from '@mantine/core';
 import ScrollAnimation from '../../animations/ScrollAnimation';
 
+/**
+ * Configuration des compétences
+ * @typedef {Object} Skill
+ * @property {string} name - Nom de la compétence
+ * @property {React.ComponentType} icon - Icône représentant la compétence
+ * @property {number} level - Niveau de maîtrise (0-100)
+ * @property {string} color - Couleur associée à la compétence (hex)
+ * @property {string} description - Description courte de la compétence
+ */
 const skills = [
   {
     name: 'React',
@@ -78,6 +95,16 @@ const skills = [
   },
 ];
 
+/**
+ * Composant d'affichage des compétences
+ * Présente une grille responsive de cartes de compétences avec :
+ * - Animations au défilement
+ * - Indicateurs de progression circulaires
+ * - Icônes et descriptions
+ * - Effets de survol
+ *
+ * @returns {JSX.Element} Grille de compétences
+ */
 export default function Skills() {
   return (
     <Box py={80} px={80} bg="light-dark(var(--mantine-color-gray-1),var(--mantine-color-dark-9))" style={{ borderRadius: rem(20) }}>

@@ -1,8 +1,22 @@
+/**
+ * Services Component
+ * Affiche une grille des services professionnels proposés
+ * avec des animations et des effets visuels
+ *
+ * @module Services
+ */
+
 import { IconCode, IconDeviceMobile, IconPalette, IconServer } from '@tabler/icons-react';
 import { Box, Paper, SimpleGrid, Text, Title, rem } from '@mantine/core';
 import ScrollAnimation from '../../animations/ScrollAnimation';
 
-
+/**
+ * Configuration des services
+ * @typedef {Object} Service
+ * @property {React.ComponentType} icon - Icône représentant le service
+ * @property {string} title - Titre du service
+ * @property {string} description - Description détaillée du service
+ */
 const services = [
   {
     icon: IconCode,
@@ -30,6 +44,17 @@ const services = [
   },
 ];
 
+/**
+ * Composant principal Services
+ * Affiche une grille responsive de cartes de services avec :
+ * - Titre principal avec effet de dégradé
+ * - Cartes animées avec effet de survol
+ * - Icônes avec animation d'entrée
+ * - Adaptation responsive (1 ou 2 colonnes)
+ * - Effet glassmorphism sur les cartes
+ *
+ * @returns {JSX.Element} Grille de services
+ */
 export default function Services() {
   return (
     <Box py={80} px={80} bg="light-dark(var(--mantine-color-gray-1),var(--mantine-color-dark-9))" style={{ borderRadius: rem(20) }}>
@@ -69,6 +94,7 @@ export default function Services() {
               }}
             >
               <ScrollAnimation direction="right" delay={index * 0.1 + 0.2} once>
+                {/* Icône du service avec animation */}
                 <service.icon
                   size={64}
                   stroke={1.5}

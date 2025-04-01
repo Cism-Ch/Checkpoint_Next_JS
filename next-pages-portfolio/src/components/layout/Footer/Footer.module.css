@@ -1,17 +1,28 @@
+/**
+ * Footer.module.css
+ * 
+ * Styles pour le composant de pied de page.
+ * Comprend la mise en page responsive, les espacements,
+ * et les effets visuels pour les liens et séparateurs.
+ */
+
+/* Style principal du footer - marge, padding et couleur de fond */
 .footer {
-  margin-top: rem(120px);
+  margin-top: rem(120px);  /* Espace au-dessus du footer */
   padding-top: calc(var(--mantine-spacing-xl) * 2);
   padding-bottom: calc(var(--mantine-spacing-xl) * 2);
-  background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-black));
-  border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+  background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-black));  /* Adaptatif au thème */
+  border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));  /* Séparateur supérieur */
 }
 
+/* Conteneur flex pour aligner les éléments du footer */
 .inner {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding-bottom: var(--mantine-spacing-xl);
 
+  /* Adaptation pour mobile - passage en colonne */
   @media (max-width: 48em) {
     flex-direction: column;
     align-items: center;
@@ -20,22 +31,26 @@
   }
 }
 
+/* Style pour la partie inférieure du footer (sous le séparateur) */
 .afterFooter {
   padding-top: var(--mantine-spacing-xl);
-  border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
+  border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));  /* Séparateur interne */
 
+  /* Centrage du texte sur mobile */
   @media (max-width: 48em) {
     text-align: center;
   }
 }
 
+/* Style des liens avec effet au survol */
 .link {
   color: var(--mantine-color-blue-6);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s;  /* Animation douce du changement de couleur */
 
+  /* Effet au survol */
   &:hover {
     color: var(--mantine-color-blue-4);
     text-decoration: underline;
   }
-} 
+}

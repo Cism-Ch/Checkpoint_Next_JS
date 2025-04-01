@@ -1,3 +1,9 @@
+/* Styles pour le composant ProfileAvatar */
+
+/* Conteneur principal de l'avatar 
+ * Utilise une variable CSS --avatar-size définie via React
+ * pour contrôler dynamiquement la taille
+ */
 .avatarWrapper {
   position: relative;
   width: var(--avatar-size);
@@ -6,11 +12,16 @@
   transition: transform 200ms ease;
   cursor: pointer;
 
+  /* Animation d'agrandissement au survol */
   &:hover {
     transform: scale(1.05);
   }
 }
 
+/* Effet de bordure colorée en dégradé
+ * Appliqué uniquement lorsque withBorder=true
+ * Créé avec un pseudo-élément positionné derrière l'avatar
+ */
 .withBorder::before {
   content: '';
   position: absolute;
@@ -18,6 +29,7 @@
   right: -2px;
   bottom: -2px;
   left: -2px;
+  /* Dégradé diagonal orange-rouge */
   background: linear-gradient(
     45deg,
     var(--mantine-color-orange-4),
@@ -27,12 +39,17 @@
   z-index: 0;
 }
 
+/* Style pour le composant Avatar de Mantine
+ * Reste visible au-dessus de la bordure grâce au z-index
+ */
 .avatar {
   position: relative;
   z-index: 1;
+  /* Bordure fine adaptée au thème clair/sombre */
   border: 2px solid light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
 }
 
+/* Conteneur de l'image pour assurer le bon cadrage */
 .imageWrapper {
   position: relative;
   width: 100%;
@@ -41,6 +58,10 @@
   border-radius: 50%;
 }
 
+/* Style pour l'image Next.js
+ * object-fit: cover assure que l'image remplit correctement
+ * l'espace circulaire sans déformation
+ */
 .image {
   width: 100%;
   height: 100%;

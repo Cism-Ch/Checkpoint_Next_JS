@@ -1,6 +1,35 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+/**
+ * @component Announcer
+ * @description Composant d'accessibilité qui annonce les changements de page aux technologies d'assistance.
+ * Ce composant utilise les attributs ARIA pour communiquer de manière non-visuelle les transitions de navigation,
+ * améliorant ainsi l'expérience des utilisateurs de lecteurs d'écran.
+ *
+ * @integration
+ * - S'intègre avec Next.js via le hook `useRouter` pour détecter les changements de route
+ * - Utilise les événements de routage de Next.js pour déclencher les annonces
+ *
+ * @accessibility
+ * Attributs ARIA utilisés :
+ * - `role="status"` : Indique que c'est une région qui communique des mises à jour importantes
+ * - `aria-live="polite"` : Les mises à jour sont annoncées sans interrompre l'utilisateur
+ * - `aria-atomic="true"` : Le contenu entier est lu à chaque mise à jour
+ *
+ * @example
+ * ```tsx
+ * // Dans _app.tsx ou un layout principal
+ * export default function Layout({ children }) {
+ *   return (
+ *     <>
+ *       <Announcer />
+ *       {children}
+ *     </>
+ *   );
+ * }
+ * ```
+ */
 export default function Announcer() {
   const [announcement, setAnnouncement] = useState('');
   const router = useRouter();

@@ -1,3 +1,9 @@
+/* Conteneur principal de navigation
+ * - Padding responsive avec clamp pour s'adapter aux différentes tailles d'écran
+ * - Bordure arrondie adaptative
+ * - Largeur maximale limitée pour les grands écrans
+ * - Centrage automatique horizontal
+ */
 .navWrapper {
   padding: clamp(0.5rem, 2vw, var(--mantine-spacing-md));
   border-radius: clamp(var(--mantine-radius-md), 2vw, var(--mantine-radius-xl));
@@ -6,23 +12,39 @@
   margin: 0 auto;
 }
 
+/* Contenu de la navigation
+ * - Position relative pour le positionnement des éléments enfants
+ * - Largeur complète pour utiliser tout l'espace disponible
+ */
 .navContent {
   position: relative;
   width: 100%;
-  
 }
 
+/* Contenu du tiroir de navigation mobile
+ * - Arrière-plan semi-transparent
+ * - Désactivation du filtre d'arrière-plan pour la performance
+ */
 .drawerContent {
   background: rgba(122, 122, 122, 0.09) !important;
   backdrop-filter: none !important;
-  
 }
 
+/* En-tête du tiroir de navigation
+ * - Arrière-plan transparent
+ * - Bordure inférieure orange pour la séparation visuelle
+ */
 .drawerHeader {
   background: var(--mantine-color-transparent) !important;
   border-bottom: 1px solid var(--mantine-color-orange-6);
 }
 
+/* Adaptations pour les écrans mobiles (max-width: 768px)
+ * - Réduction du padding et de la bordure arrondie
+ * - Passage en largeur automatique avec largeur minimale
+ * - Suppression des marges
+ * - Centrage du contenu
+ */
 @media (max-width: 768px) {
   .navWrapper {
     padding: var(--mantine-spacing-xs);
