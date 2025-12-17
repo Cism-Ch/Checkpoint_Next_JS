@@ -12,7 +12,7 @@
 import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 // Imports pour les animations de transition entre pages
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, Transition } from 'framer-motion';
 // Import de composant UI de Mantine
 import { Container } from '@mantine/core';
 // Imports des composants d'accessibilité
@@ -55,7 +55,7 @@ const pageVariants = {
 /**
  * Configuration du timing et du type d'animation pour les transitions
  */
-const pageTransition = {
+const pageTransition: Transition = {
   type: 'tween',
   ease: [0.43, 0.13, 0.23, 0.96], // Ease out cubic
   duration: 0.6,

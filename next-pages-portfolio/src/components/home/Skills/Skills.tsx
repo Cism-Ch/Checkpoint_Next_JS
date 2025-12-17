@@ -125,71 +125,71 @@ export default function Skills() {
             direction="up"
             delay={index * 0.1}
             once
+            style={{ height: '100%' }}
           >
             <Paper
-              p="xl"
+              p="lg"
               radius="lg"
               withBorder
-              shadow="md"
+              shadow="sm"
               styles={{
                 root: {
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
                   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                  backgroundColor: 'light-dark(var(--mantine-color-gray-1),var(--mantine-color-black))',
-                  backdropFilter: 'blur(25px)',
+                  backgroundColor: 'light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7))',
+                  backdropFilter: 'blur(10px)',
                   '&:hover': {
                     transform: 'translateY(-5px)',
-                    boxShadow: 'var(--mantine-shadow-md)',
+                    boxShadow: 'var(--mantine-shadow-lg)',
                   },
                 },
               }}
             >
-              <Stack gap="md">
-                <Group justify="space-between" align="flex-start" >
-                  <Stack gap={4}>
-                    <Text size="xl" fw={600} style={{ color: skill.color }}>
+              <Group wrap="nowrap" align="center" justify="space-between" h="100%">
+                <Group wrap="nowrap" gap="md">
+                  <ScrollAnimation direction="right" delay={index * 0.1 + 0.3} once>
+                    <Box
+                      style={{
+                        padding: rem(10),
+                        borderRadius: rem(12),
+                        backgroundColor: `color-mix(in srgb, ${skill.color}, transparent 90%)`,
+                      }}
+                    >
+                      <skill.icon
+                        size={42}
+                        stroke={1.5}
+                        style={{ color: skill.color }}
+                      />
+                    </Box>
+                  </ScrollAnimation>
+
+                  <Stack gap={2}>
+                    <Text size="lg" fw={700} c="bright">
                       {skill.name}
                     </Text>
-                    <Text size="md" c="dimmed" style={{ maxWidth: rem(220) }}>
+                    <Text size="sm" c="dimmed" style={{ maxWidth: rem(200), lineHeight: 1.3 }}>
                       {skill.description}
                     </Text>
                   </Stack>
-                  <ScrollAnimation
-                    direction="left"
-                    delay={index * 0.1 + 0.2}
-                    once
-                  >
-                    <RingProgress
-                      size={100}
-                      roundCaps
-                      thickness={4}
-                      sections={[{ value: skill.level, color: skill.color }]}
-                      label={
-                        <Box ta="center">
-                          <Text size="md" fw={600} style={{color: skill.color}}>
-                            {skill.level}%
-                          </Text>
-                        </Box>
-                      }
-                    />
-                  </ScrollAnimation>
                 </Group>
-                <ScrollAnimation
-                  direction="right"
-                  delay={index * 0.1 + 0.3}
-                  once
-                >
-                  <Box>
-                    <skill.icon
-                      size={64}
-                      stroke={1.5}
-                      style={{
-                        color: skill.color,
-                        opacity: 0.8,
-                      }}
-                    />
-                  </Box>
+
+                <ScrollAnimation direction="left" delay={index * 0.1 + 0.2} once>
+                  <RingProgress
+                    size={80}
+                    roundCaps
+                    thickness={6}
+                    sections={[{ value: skill.level, color: skill.color }]}
+                    label={
+                      <Text c={skill.color} fw={700} ta="center" size="xs">
+                        {skill.level}%
+                      </Text>
+                    }
+                  />
                 </ScrollAnimation>
-              </Stack>
+              </Group>
             </Paper>
           </ScrollAnimation>
         ))}

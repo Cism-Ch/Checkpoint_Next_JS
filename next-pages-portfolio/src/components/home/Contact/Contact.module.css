@@ -1,325 +1,52 @@
-/* Conteneur principal - Section contact avec fond d'image */
-.container {
+.wrapper {
   position: relative;
-  min-height: 100vh;
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);  /* Centrage horizontal du conteneur */
-  background-image: url('/contact.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding-top: var(--mantine-spacing-xl);
+  padding-bottom: var(--mantine-spacing-xl);
+  min-height: 600px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  padding: var(--mantine-spacing-xl) 0;
   overflow: hidden;
 }
 
-/* Style de base pour les overlays */
-.overlay {
+.dots {
   position: absolute;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  pointer-events: none;  /* L'overlay ne doit pas intercepter les événements de souris */
-  z-index: 1;
+  color: var(--mantine-color-dimmed);
+  opacity: 0.15;
 }
 
-/* Dégradés en haut et en bas pour améliorer la lisibilité du contenu */
-.overlayTop,
-.overlayBottom {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 35%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Dégradé supérieur - du blanc/noir vers transparent */
-.overlayTop {
-  top: 0;
-  background: linear-gradient(
-    to bottom,
-    light-dark(var(--mantine-color-white), var(--mantine-color-dark-7)) 0%,
-    light-dark(rgba(255, 255, 255, 0), rgba(26, 27, 30, 0)) 100%
-  );
-}
-
-/* Dégradé inférieur - du blanc/noir vers transparent */
-.overlayBottom {
-  bottom: 0;
-  background: linear-gradient(
-    to top,
-    light-dark(var(--mantine-color-white), var(--mantine-color-dark-7)) 0%,
-    light-dark(rgba(255, 255, 255, 0), rgba(26, 27, 30, 0)) 100%
-  );
-}
-
-/* Conteneur du contenu principal avec z-index pour s'afficher au-dessus des overlays */
-.content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 100%;
-  padding: 0 var(--mantine-spacing-xl);
-  margin: 0 auto;
-  padding: 0 var(--mantine-spacing-md);
-}
-
-/* Animation d'effet "glitch" pour le texte */
-@keyframes glitch {
-  0% {
-    text-shadow:
-      0.05em 0 0 light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8)),
-      -0.025em -0.05em 0 var(--mantine-color-orange-6),
-      0.025em 0.05em 0 light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
-  }
-
-  /* Différentes étapes de l'effet glitch avec des ombres de texte colorées */
-  14% {
-    text-shadow:
-      0.05em 0 0 light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8)),
-      -0.05em -0.025em 0 var(--mantine-color-orange-6),
-      -0.025em 0.05em 0 light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
-  }
-
-  15% {
-    text-shadow:
-      -0.05em -0.025em 0 light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8)),
-      0.025em 0.025em 0 var(--mantine-color-orange-6),
-      -0.05em -0.05em 0 light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
-  }
-
-  49% {
-    text-shadow:
-      -0.025em 0.025em 0 light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8)),
-      0.05em 0.05em 0 var(--mantine-color-orange-6),
-      0 -0.05em 0 light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
-  }
-
-  50% {
-    text-shadow:
-      0.025em 0.05em 0 light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8)),
-      0.05em 0 0 var(--mantine-color-orange-6),
-      0 -0.05em 0 light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
-  }
-
-  99% {
-    text-shadow:
-      0.025em 0.05em 0 light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8)),
-      0.05em 0 0 var(--mantine-color-orange-6),
-      0 -0.05em 0 light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
-  }
-
-  100% {
-    text-shadow:
-      -0.025em 0 0 light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8)),
-      -0.025em -0.025em 0 var(--mantine-color-orange-6),
-      -0.025em -0.05em 0 light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
-  }
-}
-
-/* Animation de clignotement pour l'effet néon */
-@keyframes neonFlicker {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  41% {
-    opacity: 1;
-  }
-  42% {
-    opacity: 0.8;  /* Légère baisse d'opacité */
-  }
-  43% {
-    opacity: 1;
-  }
-  45% {
-    opacity: 0.3;  /* Forte baisse d'opacité - effet clignotement */
-  }
-  46% {
-    opacity: 1;
-  }
-}
-
-/* Animation pour l'effet de lignes de scan (style rétro CRT) */
-@keyframes scanlines {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-/* Style du titre principal avec effet néon */
 .title {
-  --neon-color: var(--mantine-color-white);  /* Couleur de l'effet néon */
-  color: light-dark(var(--mantine-color-gray-5), var(--mantine-color-dark-9));
+  margin-bottom: var(--mantine-spacing-md);
   text-align: center;
-  margin-bottom: calc(var(--mantine-spacing-xl) * 2);
-  font-size: rem(65px);
+  font-family: var(--mantine-font-family-headings);
   font-weight: 900;
-  line-height: 1.1;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  animation: neonFlicker 2.5s infinite;  /* Animation de clignotement néon */
-  -webkit-text-stroke: 2px var(--mantine-color-brand);  /* Contour du texte */
-  text-shadow:  /* Multiples ombres pour effet de lueur */
-    0 0 10px var(--neon-color),
-    0 0 20px var(--neon-color),
-    0 0 40px var(--neon-color),
-    0 0 60px var(--neon-color);
-  box-shadow:  /* Ombres intérieures et extérieures */
-    inset 0 0 10px var(--neon-color),
-    0 0 20px var(--neon-color),
-    0 0 40px var(--neon-color);
-
-  /* Pseudo-élément pour afficher un texte "CONTACT" géant en arrière-plan */
-  &::before {
-    content: 'CONTACT';
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-15deg);
-    font-size: rem(250px);
-    opacity: 0.03;
-    white-space: nowrap;
-    color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-4));
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  /* Adaptation pour les appareils mobiles */
-  @media (max-width: 48em) {
-    font-size: rem(40px);
-    margin-bottom: var(--mantine-spacing-xl);
-
-    &::before {
-      font-size: rem(120px);
-    }
-  }
 }
 
-/* Effet de lignes de scan sur l'ensemble de la page (style moniteur CRT) */
-.scanlines {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.05) 50%,
-    transparent 100%
-  );
-  background-size: 100% 4px;  /* Hauteur des lignes de scan */
-  pointer-events: none;
-  z-index: 10;
+.description {
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: calc(var(--mantine-spacing-xl) * 2);
 }
 
-/* Grille des cartes d'information de contact */
-.infoCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* Grille responsive */
-  gap: var(--mantine-spacing-lg);
-  margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
-}
-
-/* Style des cartes de contact avec effets au survol */
-.card {
-  background: light-dark(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
-  backdrop-filter: blur(10px);  /* Effet de flou pour la transparence */
-  padding: var(--mantine-spacing-lg);
-  border-radius: var(--mantine-radius-md);
-  border: 1px solid light-dark(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  transition: all 0.3s ease;
-
-  /* Effets au survol de la carte */
-  &:hover {
-    transform: translateY(-5px) scale(1.02);  /* Léger agrandissement et élévation */
-    box-shadow: 0 0 20px var(--mantine-color-orange-4);
-    border-color: var(--mantine-color-orange-4);
-  }
-
-  /* Ligne supérieure animée au survol */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--mantine-color-orange-4), transparent);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-
-  &:hover::before {
-    transform: scaleX(1);  /* La ligne s'étend au survol */
-  }
-}
-
-/* Texte à l'intérieur des cartes */
-.cardContent {
-  color: var(--mantine-color-white);
-}
-
-/* Style du formulaire avec effets visuels */
 .form {
-  background: light-dark(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.52));
-  backdrop-filter: blur(10px);
-  padding: calc(var(--mantine-spacing-xl) * 1.5);
-  border-radius: var(--mantine-radius-lg);
-  width: 100%;
-  max-width: min(90%, 600px);  /* Limiter la largeur mais rester responsive */
-  margin: 0 auto;
-  border: 1px solid light-dark(rgba(255, 255, 255, 0.1), rgba(255, 254, 253, 0.44));
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-
-  /* Effet de brillance animé qui passe sur le formulaire */
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
-    transform: rotate(45deg);
-    animation: shine 3s infinite;
-  }
+  background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-6));
+  padding: var(--mantine-spacing-xl);
+  border-radius: var(--mantine-radius-md);
+  box-shadow: var(--mantine-shadow-lg);
+  border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
 }
 
-/* Animation de l'effet de brillance */
-@keyframes shine {
-  0% {
-    transform: translateX(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) rotate(45deg);
-  }
+.social {
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
 }
 
-/* Titre à l'intérieur du formulaire */
-.formTitle {
-  color: var(--mantine-color-white);
-  margin-bottom: var(--mantine-spacing-lg);
+.control {
+  background-color: var(--mantine-color-brand-filled);
 }
 
-/* Adaptation pour les appareils mobiles */
-@media (max-width: 48em) {
-  .container {
-    padding: var(--mantine-spacing-md) 0;
-  }
-
-  .form {
-    padding: var(--mantine-spacing-lg);  /* Moins de padding sur mobile */
-  }
+.fields {
+  display: flex;
+  flex-direction: column;
 }

@@ -115,7 +115,7 @@ export const theme = createTheme({
           '&:hover': {
             transform: 'translateY(-1px)',
           },
-          '&[data-variant="subtle"]': {
+          '&[dataVariant="subtle"]': {
             color: 'var(--mantine-color-text)',
           }
         },

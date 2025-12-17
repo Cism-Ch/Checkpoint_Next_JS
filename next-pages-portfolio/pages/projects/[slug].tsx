@@ -155,13 +155,13 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           </Group>
         </div>
 
-        {project.screenshots && project.screenshots.length > 0 && (
+        {project.gallery && project.gallery.length > 0 && (
           <>
             <Divider my="xl" />
             <div>
               <AnimatedTitle>Captures d'écran</AnimatedTitle>
               <Grid gutter="md">
-                {project.screenshots.map((screenshot, index) => (
+                {project.gallery.map((screenshot, index) => (
                   <Grid.Col key={index} span={{ base: 12, sm: 6 }}>
                     <AnimatedPaper>
                       <Image

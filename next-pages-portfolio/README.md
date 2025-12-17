@@ -1,38 +1,131 @@
-# Mantine Next.js template
+# Professional Portfolio
 
-This is a template for [Next.js](https://nextjs.org/) pages router + [Mantine](https://mantine.dev/).
-If you want to use app router instead, see [next-app-template](https://github.com/mantinedev/next-app-template).
+A modern, responsive portfolio website built with Next.js and Mantine UI, showcasing professional projects and skills with a focus on performance and accessibility.
 
-## Features
+## 🚀 Features
 
-This template comes with the following features:
+### Core Technologies
+- **Next.js 15** with Pages Router for optimal performance
+- **Mantine UI** comprehensive component library
+- **TypeScript** for type-safe development
+- **React 19** with modern hooks and patterns
 
-- [PostCSS](https://postcss.org/) with [mantine-postcss-preset](https://mantine.dev/styles/postcss-preset)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Storybook](https://storybook.js.org/)
-- [Jest](https://jestjs.io/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
+### UI/UX Features
+- **Dark/Light Theme** with system preference detection
+- **Responsive Design** optimized for all devices
+- **Smooth Animations** using Framer Motion
+- **Glassmorphism Effects** for modern aesthetics
+- **Accessibility** compliant components (A11y)
 
-## npm scripts
+### Development Tools
+- **Storybook** for component development and documentation
+- **ESLint & Stylelint** for code quality
+- **TypeScript** strict mode for error prevention
+- **Bundle Analysis** for performance optimization
+- **Component Testing** setup with Jest and React Testing Library
 
-### Build and dev scripts
+### Performance Features
+- **Code Splitting** automatic optimization
+- **Image Optimization** with Next.js Image component
+- **Static Site Generation** support
+- **Bundle Analysis** with @next/bundle-analyzer
 
-- `dev` – start dev server
-- `build` – bundle application for production
-- `export` – exports static website to `out` folder
-- `analyze` – analyzes application bundle with [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
+## 🛠️ Available Scripts
 
-### Testing scripts
+### Development
+```bash
+pnpm dev          # Start development server
+pnpm build        # Build for production
+pnpm start        # Start production server
+pnpm export       # Export static site to 'out' folder
+pnpm analyze      # Analyze bundle size
+```
 
-- `typecheck` – checks TypeScript types
-- `lint` – runs ESLint
-- `prettier:check` – checks files with Prettier
-- `jest` – runs jest tests
-- `jest:watch` – starts jest watch
-- `test` – runs `jest`, `prettier:check`, `lint` and `typecheck` scripts
+### Code Quality
+```bash
+pnpm test         # Run all checks (prettier, lint, typecheck)
+pnpm lint         # Run ESLint and Stylelint
+pnpm typecheck    # TypeScript type checking
+```
 
-### Other scripts
+### Documentation
+```bash
+pnpm storybook    # Start Storybook development server
+pnpm storybook:build # Build Storybook for production
+```
 
-- `storybook` – starts storybook dev server
-- `storybook:build` – build production storybook bundle to `storybook-static`
-- `prettier:write` – formats all files with Prettier
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── about/          # About page components
+│   ├── common/         # Shared utilities (Theme, Brand, etc.)
+│   ├── home/           # Homepage specific components
+│   ├── layout/         # Header, Footer, Navigation
+│   └── projects/       # Project showcase components
+├── data/               # Static data (projects, etc.)
+├── styles/             # Global styles
+├── theme/              # Theme configuration and hooks
+├── types/              # TypeScript type definitions
+└── utils/              # Utility functions
+```
+
+## 🎨 Key Components
+
+### Theme System
+- Custom theme provider with Zustand state management
+- Dark/light mode with system preference detection
+- Glassmorphism effects and modern styling
+
+### Project Showcase
+- Dynamic project filtering and sorting
+- Project cards with animations
+- Detailed project pages with rich content
+
+### Performance Optimizations
+- Lazy loading for images and components
+- Code splitting by route and component
+- Optimized bundle sizes
+
+## 🚀 Getting Started
+
+1. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+2. **Run development server**
+   ```bash
+   pnpm dev
+   ```
+
+3. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📊 Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Framework | Next.js 15 (Pages Router) |
+| UI Library | Mantine UI v7 |
+| Language | TypeScript |
+| State Management | Zustand |
+| Styling | CSS Modules + Mantine |
+| Animations | Framer Motion |
+| Charts | Recharts + Mantine Charts |
+| Testing | Jest + React Testing Library |
+| Documentation | Storybook |
+| Package Manager | pnpm |
+
+## 🤝 Contributing
+
+This portfolio follows strict code quality standards:
+- All code must pass TypeScript checks
+- ESLint and Stylelint rules enforced
+- Components should be documented in Storybook
+- Accessibility compliance is required
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
