@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { MantineProvider } from '@mantine/core';
-import { Hero } from '../Hero';
+import Hero from '../Hero';
 import classes from '../Hero.module.css';
 
 describe('Hero styles', () => {

@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { MantineProvider } from '@mantine/core';
 import { theme } from '../../../../theme/theme';
-import { Header } from '../Header';
+import Header from '../Header';
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn(),

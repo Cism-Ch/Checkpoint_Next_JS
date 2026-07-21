@@ -14,7 +14,7 @@ describe('useTheme', () => {
   });
 
   it('should return default values', () => {
-    (useThemeStore as jest.Mock).mockReturnValue({
+    (useThemeStore as unknown as jest.Mock).mockReturnValue({
       colorScheme: 'light',
       isAuto: false,
       toggleColorScheme: jest.fn(),
@@ -31,7 +31,7 @@ describe('useTheme', () => {
 
   it('should toggle color scheme', () => {
     const mockToggleColorScheme = jest.fn();
-    (useThemeStore as jest.Mock).mockReturnValue({
+    (useThemeStore as unknown as jest.Mock).mockReturnValue({
       colorScheme: 'light',
       isAuto: false,
       toggleColorScheme: mockToggleColorScheme,
@@ -50,7 +50,7 @@ describe('useTheme', () => {
 
   it('should set color scheme', () => {
     const mockSetColorScheme = jest.fn();
-    (useThemeStore as jest.Mock).mockReturnValue({
+    (useThemeStore as unknown as jest.Mock).mockReturnValue({
       colorScheme: 'light',
       isAuto: false,
       toggleColorScheme: jest.fn(),
@@ -69,7 +69,7 @@ describe('useTheme', () => {
 
   it('should set auto mode', () => {
     const mockSetAuto = jest.fn();
-    (useThemeStore as jest.Mock).mockReturnValue({
+    (useThemeStore as unknown as jest.Mock).mockReturnValue({
       colorScheme: 'light',
       isAuto: false,
       toggleColorScheme: jest.fn(),
