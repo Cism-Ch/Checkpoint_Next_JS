@@ -8,6 +8,13 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 
 ## [Unreleased]
 
+### 🛠️ Tooling & Linting
+- **ESLint & Next.js** : Installation et intégration du plugin `@next/eslint-plugin-next` dans la configuration ESLint Flat Config (`eslint.config.mjs`) avec l'activation des règles recommandées et `core-web-vitals`.
+
+### 🎨 Design System & Skills
+- **UI/UX Pro Max** : Installation du skill `ui-ux-pro-max` (v2.11) dans `.agents/skills/ui-ux-pro-max`.
+- **Audit Design System** : Élaboration du plan d'optimisation UI/UX (Glassmorphism 2.0, typographie Inter, palettes WCAG AAA et tokens sémantiques).
+
 ---
 
 ## [1.1.0] - 2026-07-21
