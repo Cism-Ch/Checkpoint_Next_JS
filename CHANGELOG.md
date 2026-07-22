@@ -10,10 +10,14 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 
 ### 🛠️ Tooling & Linting
 - **ESLint & Next.js** : Installation et intégration du plugin `@next/eslint-plugin-next` dans la configuration ESLint Flat Config (`eslint.config.mjs`) avec l'activation des règles recommandées et `core-web-vitals`.
+- **Résolution des verrous de cache** : Nettoyage des répertoires de build `.next` et `node_modules/.cache` pour éliminer les erreurs de modules manquants (`vendor-chunks`) lors des mises à jour des dépendances.
 
 ### 🎨 Design System & Skills
 - **UI/UX Pro Max** : Installation du skill `ui-ux-pro-max` (v2.11) dans `.agents/skills/ui-ux-pro-max`.
-- **Audit Design System** : Élaboration du plan d'optimisation UI/UX (Glassmorphism 2.0, typographie Inter, palettes WCAG AAA et tokens sémantiques).
+- **Glassmorphism 2.0 & Tokens** : Implémentation du système Glassmorphism 2.0 (saturation 180%, reflet de bordure, ombres dynamiques) dans `glassmorphism.ts` et `global.css`.
+- **Basculement Dynamique de Thème (Fix Navbar)** : Correction de la fonction `createGlassmorphismStyles` avec la fonction CSS `light-dark()` pour s'assurer que l'arrière-plan de la navbar centrale et la couleur des bordures s'adaptent instantanément lors du passage au mode clair.
+- **Typographie** : Intégration des polices Google Fonts `Inter` et `JetBrains Mono` pour les titres et le code.
+- **Composant Hero & A11y** : Refonte visuelle et réorganisation responsive du composant `Hero`, ajout du contour de focus `:focus-visible` et support de `prefers-reduced-motion`.
 
 ---
 

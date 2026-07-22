@@ -49,13 +49,13 @@ export const theme = createTheme({
     ],
   },
 
-  /* Configuration typographique */
+  /* Configuration typographique UI/UX Pro Max */
   fontFamily:
-    'Raleway, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
-  fontFamilyMonospace: 'Monaco, Courier, monospace',
+    'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontFamilyMonospace: '"JetBrains Mono", Monaco, Consolas, monospace',
   headings: {
     fontFamily:
-      'Raleway, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
+      'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     sizes: {
       h1: { fontSize: rem(44), lineHeight: '1.3', fontWeight: '700' },
       h2: { fontSize: rem(36), lineHeight: '1.35', fontWeight: '600' },
